@@ -1,0 +1,22 @@
+*{
+    font-family: 'Inconsolata', monospace;
+    padding: 0px;
+    margin: 0px;
+}
+
+body{
+    background: #163919;
+}
+
+#video-box{
+    margin: auto;
+    margin-top: 20px;
+    background-color: #FCF6E5;
+    width: 50vw;
+    height: 85vh;
+    border-radius: 22px;
+    padding-left: 30px;
+    border: 1px solid;
+    padding: 10px;
+    box-shadow: 20px 30px #E5A099;
+}
