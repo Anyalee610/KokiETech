@@ -1,0 +1,16 @@
+
+.new_post{
+    background-color: antiquewhite;
+    height: 800px;
+    width: 600px;
+    border-radius: 60px;
+    padding-left: 20px;
+}
+#user_name{
+ padding-left: 30px;
+}
+li{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
