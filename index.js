@@ -1,3 +1,6 @@
+
+
+
 const signUp = document.getElementById('btn')
 
 const openHome = function() {
@@ -5,3 +8,4 @@ const openHome = function() {
 }
  
 signUp.addEventListener('click', openHome)
+
