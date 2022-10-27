@@ -5,10 +5,17 @@ const engineerLogIn = require('../models/signInModel.js');
 
 //This function waits for the informaton about one engineer to come from the db.js to engineerModel.js to get here. Then sends a response.
 const logInEngineer = async (request, response) => {
-    const {username, password} = request.body;
+    const username = request.params.username;
+    const password = request.params.password;
+    console.log(username,password)
     const engineer = await engineerLogIn.getAllEngineerByLoginFromDB(username,password);
     const insertedEngineer = engineer.rows[0];
-    response.send(insertedEngineer);
+    console.log(insertedEngineer)
+    if(insertedEngineer){
+        response.send(insertedEngineer);
+    }else{
+        response.send({alert:"invald login "});
+    }
 }
 
 

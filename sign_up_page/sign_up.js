@@ -2,9 +2,11 @@
 const submitButtonSign = document.getElementById("submit-sign-in");
 const submitButtonLog = document.getElementById("submit-log-in");
 const nameTextInput = document.getElementById("fname");
+const usernameTextInput1 = document.getElementById("username1");
+const passwordTextInput1 = document.getElementById("pword1");
+const emailTextInput = document.getElementById("email");
 const usernameTextInput = document.getElementById("username");
 const passwordTextInput = document.getElementById("pword");
-const emailTextInput = document.getElementById("email");
 const signupInfo = document.getElementById("sign-up");
 const logIn = document.getElementById("log-in")
 
@@ -13,8 +15,34 @@ logIn.style.display ="none"
 //event listener function 
 const clickButtonLog = (event) =>{
     event.preventDefault()
-    let passwordValue = passwordTextInput.value;
-    let usernameValue = usernameTextInput.value;
+    let userId = '';
+    let logedIn = true;
+    let passwordValue = passwordTextInput1.value;
+    let usernameValue = usernameTextInput1.value;
+
+    let requestOptions = {
+        method: 'GET',
+        redirect: 'follow'
+      };
+      console.log(usernameValue,passwordValue)
+      
+      fetch(`http://localhost:4000/engineer-login/${usernameValue}/${passwordValue}`, requestOptions)
+        .then(response => response.json())
+        .then(result => {
+            if(result.alert = "loged in"){
+                localStorage.setItem("userId",result.data.id);
+                localStorage.setItem("username",usernameValue);
+                localStorage.setItem("password",passwordValue);
+                window.location.href= "../feeds_page/feeds_page.html"
+            }else{
+                alert("Invalid User")
+            }
+        })
+        .catch(error => console.log('error', error));
+    
+
+   
+
 
 }
 const clickButtonSign = (event) => {
@@ -28,14 +56,14 @@ const clickButtonSign = (event) => {
     myHeaders.append("Content-Type", "application/json");
 
 
-    const raw = JSON.stringify({
+    let raw = JSON.stringify({
         "name": nameValue,
         "username": usernameValue,
         "email": emailValue,
         "password": passwordValue
     });
 
-    const requestOptions = {
+    let requestOptions = {
     method: 'POST',
     headers: myHeaders,
     body: raw,
@@ -44,7 +72,7 @@ const clickButtonSign = (event) => {
 
     console.log(usernameValue);
     
-    fetch("http://localhost:3001/engineer/", requestOptions)
+    fetch("http://localhost:4000/engineer/", requestOptions)
     .then(response => response.json())
     .then(result => console.log(result))
     .catch(error => console.log('error', error));
@@ -65,6 +93,10 @@ document.body.style.backgroundColor = "#163919";
 document.body.style.textAlign = "center";
 
 
+module.exports = {
+    userId,
+    logIn
 
+}
 
 
