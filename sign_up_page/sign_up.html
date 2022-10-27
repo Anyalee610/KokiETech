@@ -9,23 +9,32 @@
 </head>
 <body>
     <h1> Sign up to KokiETech </h1>
-    <form action="" id = signup_form>
+    <form id="sign-up"action="">
         <label for="fname"> <p>Full Name: </p></label>
-        <input type="text" id="fname" name="fname" value="Enter Full name">
+        <input  type="text" id="fname" name="fname" placeholder="Enter Full name">
 
         <label for="username"><p>Username:</p></label>
-        <input type="text" id="username" name="username" value="Create Username">
+        <input type="text" id="username" name="username" placeholder="Create Username">
 
-        <label for="email"><p>Email:</p></label>
-        <input type="text" id="email" name="email" value="Enter Email">
+        <label  for="email"><p>Email:</p></label>
+        <input  type="text" id="email" name="email" placeholder="Enter Email">
 
         <label for="pword"> <p>Password: </p></label>
-        <input type="text" id="pword" name="pword" value="Create Password">
+        <input type="text" id="pword" name="pword" placeholder="Create Password">
         <br><br>
 
-        
+        <input type="submit" id= "submit-sign-in" value="submit">
+      </form> 
+      
+      <form id="log-in"action="">
+        <label for="username1"><p>Username:</p></label>
+        <input type="text" id="username1" name="username1" placeholder=" Username">
 
-        <input type="submit" id= "submit" value="submit">
+        <label for="pword1"> <p>Password: </p></label>
+        <input type="text" id="pword1" name="pword1" placeholder=" Password">
+        <br><br>
+
+        <input type="submit" id= "submit-log-in" value="submit">
       </form> 
       
     <script src = "./sign_up.js"></script>
