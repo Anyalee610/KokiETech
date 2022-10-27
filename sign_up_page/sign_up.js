@@ -9,14 +9,27 @@ const usernameTextInput = document.getElementById("username");
 const passwordTextInput = document.getElementById("pword");
 const signupInfo = document.getElementById("sign-up");
 const logIn = document.getElementById("log-in")
+const switchToSign = document.getElementById("switch-sign");
+const switchToLogin = document.getElementById("switch-log");
 
 logIn.style.display ="none"
 
 //event listener function 
+const switchTo = (logOrSign) => {
+    console.log('work')
+    if(logOrSign === 'sign'){
+        signupInfo.style.display = "none";
+        logIn.style.display= "block";
+    }else if (logOrSign === "log"){
+        logIn.style.display ="none"
+        signupInfo.style.display = "block"
+
+    }
+}
+
+
 const clickButtonLog = (event) =>{
     event.preventDefault()
-    let userId = '';
-    let logedIn = true;
     let passwordValue = passwordTextInput1.value;
     let usernameValue = usernameTextInput1.value;
 
@@ -88,6 +101,13 @@ const clickButtonSign = (event) => {
 }
 submitButtonSign.addEventListener("click", clickButtonSign);
 submitButtonLog.addEventListener("click", clickButtonLog);
+switchToLogin.addEventListener('click',()=>{
+    switchTo('sign')
+});
+switchToSign.addEventListener('click',()=>{
+    switchTo('log')
+})
+
 //background color
 document.body.style.backgroundColor = "#163919";
 document.body.style.textAlign = "center";

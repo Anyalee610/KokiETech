@@ -1,5 +1,3 @@
-
-
 let userId = localStorage.getItem("userId");
 let username = localStorage.getItem("username");
 let password = localStorage.getItem("password");
