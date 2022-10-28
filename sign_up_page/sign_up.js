@@ -70,6 +70,7 @@ const clickButtonSign = (event) => {
 
 
     let raw = JSON.stringify({
+        userId,
         "name": nameValue,
         "username": usernameValue,
         "email": emailValue,

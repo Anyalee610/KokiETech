@@ -16,8 +16,8 @@ const getSingleEngineersPost = async (request, response) => {
 }
 //This function get a request with name, username, email, password. It then wait for the promise to be fullied that it sent it to the db.js. Then sends the data that was put.
 const addPost = async (request, response) => {
-    const {description, tech1, tech2, title, url,userId} = request.body;
-    const postByEngineer = await post.postAPostToDB(description, tech1, tech2, title, url,userId);
+    const {description, tech1, tech2, title, url} = request.body;
+    const postByEngineer = await post.postAPostToDB(description, tech1, tech2, title, url);
     console.log(postByEngineer)
     const insertedPost = postByEngineer.rows[0];
     response.send(insertedPost);

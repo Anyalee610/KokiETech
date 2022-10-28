@@ -32,7 +32,6 @@ const cancelClickEvent = () => {
 }
 
 const clickForSubmit = () =>{
-
     let titleValue = title.value;
     let tech1Value = tech1.value;
     let tech2Value = tech2.value;
