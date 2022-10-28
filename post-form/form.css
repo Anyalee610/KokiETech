@@ -1,14 +1,13 @@
 *{
     font-family: 'Inconsolata', monospace;
-    padding: 0px;
-    margin: 0px;
+  
 }
 
 body{
     background: #163919;
 }
 
-#video-box{
+#post{
     margin: auto;
     margin-top: 20px;
     background-color: #FCF6E5;

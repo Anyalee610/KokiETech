@@ -39,7 +39,7 @@ const clickButtonLog = (event) =>{
       };
       console.log(usernameValue,passwordValue)
       
-      fetch(`http://localhost:4000/engineer-login/${usernameValue}/${passwordValue}`, requestOptions)
+      fetch(`http://localhost:4001/engineer-login/${usernameValue}/${passwordValue}`, requestOptions)
         .then(response => response.json())
         .then(result => {
             if(result.alert = "loged in"){
@@ -85,7 +85,7 @@ const clickButtonSign = (event) => {
 
     console.log(usernameValue);
     
-    fetch("http://localhost:4000/engineer/", requestOptions)
+    fetch("http://localhost:4001/engineer/", requestOptions)
     .then(response => response.json())
     .then(result => console.log(result))
     .catch(error => console.log('error', error));
@@ -111,12 +111,5 @@ switchToSign.addEventListener('click',()=>{
 //background color
 document.body.style.backgroundColor = "#163919";
 document.body.style.textAlign = "center";
-
-
-module.exports = {
-    userId,
-    logIn
-
-}
 
 

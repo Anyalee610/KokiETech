@@ -1,17 +1,19 @@
 const {pool} = require('./db.js');
 const express = require('express');
 const engineerRouter = require('./routes/engineerRoutes');
-//const signInRouter = require('./routes/signInRoutes');
-//const signInController = require('./controller/signInController.js');
+const postRouter = require('./routes/postRoute')
+
 const app = express();
 const cors = require('cors');
-const port = 4000; 
+const port = 4001; 
 app.use(cors());
 app.use(express.json());
 
 
 //connects the api to the routes that connect to everything else
 app.use('/engineer', engineerRouter);
+app.use('/feeds',postRouter)
+
 app.get("/engineer-login/:name/:password", async (request, rep) => {
     const username = request.params.name;
     const userPassword = request.params.password;
