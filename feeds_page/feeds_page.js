@@ -1,5 +1,5 @@
 const user = document.getElementById("user")
-let userId = window.localStorage.getItem("userId");
+let id = localStorage.getItem("userId");
 let username = localStorage.getItem("username");
 let password = localStorage.getItem("password");
 const title = document.getElementById('title');
@@ -41,7 +41,7 @@ const clickForSubmit = () =>{
     myHeaders.append("Content-Type", "application/json");
 
     let raw = JSON.stringify({
-        "userId":userId,
+        "userId": +id,
         "description": descValue,
         "tech1": tech1Value,
         "tech2": tech2Value,
@@ -57,7 +57,7 @@ const clickForSubmit = () =>{
     };
 
     fetch("http://localhost:4001/feeds/", requestOptions)
-    .then(response => response.text())
+    .then(response => response.json())
     .then(result => console.log(result))
     .catch(error => console.log('error', error));
     form.style.display ='none'

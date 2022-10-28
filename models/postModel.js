@@ -10,9 +10,9 @@ class post {
         return pool.query('SELECT * FROM post WHERE userId = $1',[id]);
     }
     //this inserts data given adout the engineer to make a account
-    static postAPostToDB(description, tech1, tech2, title, url) {
+    static postAPostToDB(userId,description, tech1, tech2, title, url) {
             return pool.query(
-            'INSERT INTO post(description,tech1,tech2,title,url) VALUES($1, $2, $3, $4, $5,$6) RETURNING *',[description, tech1, tech2, title, url]);
+            'INSERT INTO post(userid,description,tech1,tech2,title,url) VALUES($1, $2, $3, $4, $5, $6) RETURNING *',[userId,description, tech1, tech2, title, url]);
     }
 
 }

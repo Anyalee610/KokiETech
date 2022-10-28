@@ -46,6 +46,7 @@ const clickButtonLog = (event) =>{
                 localStorage.setItem("userId",result.data.id);
                 localStorage.setItem("username",usernameValue);
                 localStorage.setItem("password",passwordValue);
+                
                 window.location.href= "../feeds_page/feeds_page.html"
             }else{
                 alert("Invalid User")

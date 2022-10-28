@@ -5,6 +5,7 @@ let username = localStorage.getItem("username");
 let password = localStorage.getItem("password");
 const logOut = document.getElementById('btn')
 
+console.log(userId,username)
 user.innerText = username
 usertitle.innerText = username
 const removeLocalStorage = () =>{
