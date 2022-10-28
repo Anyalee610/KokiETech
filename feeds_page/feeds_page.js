@@ -17,6 +17,36 @@ const logOut = document.getElementById('btn')
 user.innerText = username
 form.style.display ='none';
 
+const renderpost = () => {
+    fetch('http://localhost:4001/feeds/')
+    .then(res=> res.json())
+    .then(json => json.forEach(post => {
+        let div = document.createElement('div');
+        div.setAttribute('class', 'card');
+        
+        let newpost = `
+        <div class="card-body">
+          <span class="tag tag-teal">${post.tech1}</span>
+          <span class="tag tag-teal">${post.tech2}</span>
+          <h4>${post.title}
+          </h4>
+          <p>
+            ${post.description}
+          </p>
+            <div class="user-info">
+              <h5>user</h5>
+              
+          </div>
+        </div>
+    
+`       
+        div.innerHTML = newpost
+        feed.append(div)
+    }))
+}
+
+renderpost()
+
 const removeLocalStorage = () =>{
     localStorage.clear();
     window.location.href= "../index.html"
