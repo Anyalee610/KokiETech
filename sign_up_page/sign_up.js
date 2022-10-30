@@ -25,6 +25,7 @@ const switchTo = (logOrSign) => {
         signupInfo.style.display = "block"
 
     }
+    
 }
 
 

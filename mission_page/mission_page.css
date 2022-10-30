@@ -1,0 +1,35 @@
+*{
+    font-family: 'Inconsolata', monospace;
+  
+}
+
+body{
+    background: #163919;
+    color:#ffffff
+}
+nav{
+    background-color: #E5A099;
+    height: 60px;
+    display: flex;
+    justify-content:flex-end;
+    align-items:center;
+    padding-right: 20px;
+    font-family: 'Inconsolata', monospace;
+}
+.btn-link{
+    color: #ffffff;
+    text-decoration: none;
+    padding-left: 20px;
+}
+img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+h1{
+    writing-mode: vertical-lr;
+}
+footer{
+    background-color: #E5A099;  
+    margin-top: 50px;
+}

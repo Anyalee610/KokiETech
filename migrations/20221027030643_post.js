@@ -14,7 +14,6 @@
           table.string('url').notNullable;
            //table.string('img').notNullable;
 
-          
       })
 };
 

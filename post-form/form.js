@@ -6,6 +6,7 @@ const url = document.getElementById('url');
 const submit = document.getElementById('submit')
 const cancel = document.getElementById('cancel')
 
+title.innerText = "hello"
 let userId = localStorage.getItem("userId");
 const titleValue = title.value
 const tech1Value = tech1.value
