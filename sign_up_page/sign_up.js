@@ -44,7 +44,7 @@ const clickButtonLog = (event) =>{
         .then(response => response.json())
         .then(result => {
             if(result.alert = "loged in"){
-                localStorage.setItem("userId",result.data.id);
+                localStorage.setItem("userId",result.id);
                 localStorage.setItem("username",usernameValue);
                 localStorage.setItem("password",passwordValue);
                 
@@ -72,7 +72,7 @@ const clickButtonSign = (event) => {
 
 
     let raw = JSON.stringify({
-        userId,
+
         "name": nameValue,
         "username": usernameValue,
         "email": emailValue,
