@@ -47,6 +47,7 @@ const clickButtonLog = (event) =>{
                 localStorage.setItem("userId",result.data.id);
                 localStorage.setItem("username",usernameValue);
                 localStorage.setItem("password",passwordValue);
+                
                 window.location.href= "../feeds_page/feeds_page.html"
             }else{
                 alert("Invalid User")
@@ -71,6 +72,7 @@ const clickButtonSign = (event) => {
 
 
     let raw = JSON.stringify({
+        userId,
         "name": nameValue,
         "username": usernameValue,
         "email": emailValue,

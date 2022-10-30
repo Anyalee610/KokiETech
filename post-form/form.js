@@ -7,7 +7,7 @@ const submit = document.getElementById('submit')
 const cancel = document.getElementById('cancel')
 
 title.innerText = "hello"
-let userId = localStorage.getItem("userId");
+let userId = localStorage.getItem("id");
 const titleValue = title.value
 const tech1Value = tech1.value
 const tech2Value = tech2.value

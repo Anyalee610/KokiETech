@@ -31,7 +31,6 @@ app.get("/engineer-login/:name/:password", async (request, rep) => {
         rep.send({ alert: "invalid log in"})
     }
 })
-//app.use('/engineer-login/:username/:password', signInController);
 
 
 app.listen(port, () => {
