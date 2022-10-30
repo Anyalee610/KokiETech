@@ -11,7 +11,7 @@ const signupInfo = document.getElementById("sign-up");
 const logIn = document.getElementById("log-in")
 const switchToSign = document.getElementById("switch-sign");
 const switchToLogin = document.getElementById("switch-log");
-
+const title = document.getElementById('title')
 logIn.style.display ="none"
 
 //event listener function 
@@ -106,9 +106,13 @@ submitButtonSign.addEventListener("click", clickButtonSign);
 submitButtonLog.addEventListener("click", clickButtonLog);
 switchToLogin.addEventListener('click',()=>{
     switchTo('sign')
+    title.innerText = 'Login to KokiTech'
+
 });
 switchToSign.addEventListener('click',()=>{
     switchTo('log')
+    title.innerText = 'Sign up to KokiETech'
+    
 })
 
 //background color

@@ -11,8 +11,13 @@ const submit = document.getElementById('submit')
 const cancel = document.getElementById('cancel')
 const feed = document.getElementById('feed');
 const form = document.getElementById('form');
-const postbtn =document.getElementById('postbtn')
-const logOut = document.getElementById('btn')
+const postbtn =document.getElementById('postbtn');
+const logOut = document.getElementById('btn');
+const pageTitle = document.getElementById('page-title');
+const feedbtn = document.getElementById('feedbtn');
+const likes = document.getElementById('heart');
+const comment = document.getElementById('comment');
+
 
 user.innerText = username
 form.style.display ='none';
@@ -26,19 +31,21 @@ const renderpost = () => {
         let newpost = `
         <div class="card-body">
         <div class="user-info">
-         <a>${post.username}</a>  
+         <a class= 'user-links'>${post.username}</a>  
           </div>
-
-          <span class="tag tag-teal">${post.tech1}</span>
-          <span class="tag tag-teal">${post.tech2}</span>
+          
           <h4>${post.title}
           </h4>
+          <div class ='all-tags'>
+          <span class="tag tag-pink">${post.tech1}</span>
+          <span class="tag tag-teal">${post.tech2}</span>
+          </div>
           <p>
             ${post.description}
           </p>
-          <a href = "${post.url}">Sites Link</a>
+          <a class="web-links" href = "${post.url}">Sites Link</a>
+          
         </div>
-    
 `       
         
         div.innerHTML = newpost
@@ -49,13 +56,14 @@ renderpost();
 
 const postUserbtn = (e) => {
     let text = e.target.innerText
-    console.log(text)
+    if(typeof text === "string"){
     async function fetchUserPost() {
         const response = await fetch(`http://localhost:4001/feeds/${text}/`);
         const data = await response.json();
         console.log(data)
         if(data.length >0){
             feed.innerHTML = ''
+            
             data.forEach(post => {
                 
                 let div = document.createElement('div');
@@ -78,17 +86,17 @@ const postUserbtn = (e) => {
                 </div>
             
           `       
-                
+                pageTitle.innerText = post.username
                 div.innerHTML = newpost
                 div.setAttribute("id",`${post.id}`)
                 feed.append(div)
             })
             
         }
-      }
+      } 
       fetchUserPost()
       
-    
+    }
 }
 const removeLocalStorage = () =>{
     localStorage.clear();
@@ -98,6 +106,7 @@ const removeLocalStorage = () =>{
 const postClickEvent = () => {
     form.style.display ='block'
     feed.style.display ='none'
+    pageTitle.style.display ='none'
 }
 const cancelClickEvent = () => {
     form.style.display ='none'
@@ -145,10 +154,22 @@ const userClickEvent = () => {
     window.location.href= "../profile_page/profile.html"
     renderpost()
 }
+
+
+
+
+
 submit.addEventListener('click', clickForSubmit)
 postbtn.addEventListener('click',postClickEvent)
 cancel.addEventListener('click',cancelClickEvent)
 user.addEventListener('click', userClickEvent)
 logOut.addEventListener('click', removeLocalStorage)
 feed.addEventListener('click', postUserbtn)
+feedbtn.addEventListener('click', ()=>{
+    renderpost()
+    feed.style.display ='flex'
+    pageTitle.style.display ='block'
+    form.style.display ='none'
+    renderpost()
+})
 document.body.style.backgroundColor = "#163919";
