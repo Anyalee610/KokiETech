@@ -17,7 +17,7 @@ const feedbtn = document.getElementById('feedbtn')
 
 user.innerText = username
 form.style.display ='none';
-
+console.log(id)
 const renderpost = () => {
     fetch(`http://localhost:4001/feeds/id${id}`)
     .then(res=> res.json())

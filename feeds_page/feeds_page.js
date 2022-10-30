@@ -21,10 +21,8 @@ const renderpost = () => {
     fetch('http://localhost:4001/feeds/')
     .then(res=> res.json())
     .then(json => json.forEach(post => {
-
         let div = document.createElement('div');
         div.setAttribute('class', 'card');
-        
         let newpost = `
         <div class="card-body">
         <div class="user-info">
@@ -44,12 +42,10 @@ const renderpost = () => {
 `       
         
         div.innerHTML = newpost
-        div.setAttribute("id",`${post.id}`)
         feed.append(div)
     }))
 }
-
-renderpost()
+renderpost();
 
 const postUserbtn = (e) => {
     let text = e.target.innerText
@@ -123,7 +119,7 @@ const clickForSubmit = () =>{
         "tech1": tech1Value,
         "tech2": tech2Value,
         "title": titleValue,
-        "url": urlValue,
+        "url": urlValue
         
     });
 

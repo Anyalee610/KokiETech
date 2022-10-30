@@ -44,7 +44,7 @@ const clickButtonLog = (event) =>{
         .then(response => response.json())
         .then(result => {
             if(result.alert = "loged in"){
-                localStorage.setItem("userId",result.id);
+                localStorage.setItem("userId",result.data.id);
                 localStorage.setItem("username",usernameValue);
                 localStorage.setItem("password",passwordValue);
                 
