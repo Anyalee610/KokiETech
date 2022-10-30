@@ -21,11 +21,16 @@ const renderpost = () => {
     fetch('http://localhost:4001/feeds/')
     .then(res=> res.json())
     .then(json => json.forEach(post => {
+
         let div = document.createElement('div');
         div.setAttribute('class', 'card');
         
         let newpost = `
         <div class="card-body">
+        <div class="user-info">
+         <a>${post.username}</a>  
+          </div>
+
           <span class="tag tag-teal">${post.tech1}</span>
           <span class="tag tag-teal">${post.tech2}</span>
           <h4>${post.title}
@@ -33,20 +38,62 @@ const renderpost = () => {
           <p>
             ${post.description}
           </p>
-            <div class="user-info">
-              <h5>user</h5>
-              
-          </div>
+          <a href = "${post.url}">Sites Link</a>
         </div>
     
 `       
+        
         div.innerHTML = newpost
+        div.setAttribute("id",`${post.id}`)
         feed.append(div)
     }))
 }
 
 renderpost()
 
+const postUserbtn = (e) => {
+    let text = e.target.innerText
+    console.log(text)
+    async function fetchUserPost() {
+        const response = await fetch(`http://localhost:4001/feeds/${text}/`);
+        const data = await response.json();
+        console.log(data)
+        if(data.length >0){
+            feed.innerHTML = ''
+            data.forEach(post => {
+                
+                let div = document.createElement('div');
+                div.setAttribute('class', 'card');
+                
+                let newpost = `
+                <div class="card-body">
+                <div class="user-info">
+                 <a>${post.username}</a>  
+                  </div>
+          
+                  <span class="tag tag-teal">${post.tech1}</span>
+                  <span class="tag tag-teal">${post.tech2}</span>
+                  <h4>${post.title}
+                  </h4>
+                  <p>
+                    ${post.description}
+                  </p>
+                  <a href = "${post.url}">Sites Link</a>
+                </div>
+            
+          `       
+                
+                div.innerHTML = newpost
+                div.setAttribute("id",`${post.id}`)
+                feed.append(div)
+            })
+            
+        }
+      }
+      fetchUserPost()
+      
+    
+}
 const removeLocalStorage = () =>{
     localStorage.clear();
     window.location.href= "../index.html"
@@ -76,7 +123,8 @@ const clickForSubmit = () =>{
         "tech1": tech1Value,
         "tech2": tech2Value,
         "title": titleValue,
-        "url": urlValue
+        "url": urlValue,
+        
     });
 
     let requestOptions = {
@@ -92,16 +140,19 @@ const clickForSubmit = () =>{
     .catch(error => console.log('error', error));
     form.style.display ='none'
     feed.style.display ='flex'
+    window.location.reload();
 
     }
 
 
 const userClickEvent = () => {
     window.location.href= "../profile_page/profile.html"
+    renderpost()
 }
 submit.addEventListener('click', clickForSubmit)
 postbtn.addEventListener('click',postClickEvent)
 cancel.addEventListener('click',cancelClickEvent)
 user.addEventListener('click', userClickEvent)
 logOut.addEventListener('click', removeLocalStorage)
+feed.addEventListener('click', postUserbtn)
 document.body.style.backgroundColor = "#163919";

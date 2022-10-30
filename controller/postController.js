@@ -10,9 +10,14 @@ const getAllPost = async (request, response) => {
 
 //This function waits for the informaton about one engineer to come from the db.js to engineerModel.js to get here. Then sends a response.
 const getSingleEngineersPost = async (request, response) => {
-    const id = request.params.userId;
+    const id = request.params.id;
     const postById = await post.getPostByIdFromDB(id);
-    response.send(postById.rows[0]);
+    response.send(postById.rows);
+}
+const getEngineersPost = async (request, response) => {
+    const usernames = request.params.username;
+    const engineerPost = await post.getPostByusernameFromDB(usernames);
+    response.send(engineerPost.rows);
 }
 //This function get a request with name, username, email, password. It then wait for the promise to be fullied that it sent it to the db.js. Then sends the data that was put.
 const addPost = async (request, response) => {
@@ -27,5 +32,6 @@ const addPost = async (request, response) => {
 module.exports = {
     addPost,
     getSingleEngineersPost,
-    getAllPost
+    getAllPost,
+    getEngineersPost
 }
