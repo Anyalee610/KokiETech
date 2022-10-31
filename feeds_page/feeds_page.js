@@ -15,8 +15,6 @@ const postbtn =document.getElementById('postbtn');
 const logOut = document.getElementById('btn');
 const pageTitle = document.getElementById('page-title');
 const feedbtn = document.getElementById('feedbtn');
-const likes = document.getElementById('heart');
-const comment = document.getElementById('comment');
 
 
 user.innerText = username
