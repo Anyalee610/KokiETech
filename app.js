@@ -6,7 +6,7 @@ const postRouter = require('./routes/postRoute');
 
 const app = express();
 const cors = require('cors');
-const port = 4001; 
+const port = 4002; 
 app.use(cors());
 app.use(express.json());
 
@@ -14,7 +14,7 @@ app.use(express.json());
 //connects the api to the routes that connect to everything else
 app.use('/engineer', engineerRouter);
 app.use('/feeds',postRouter)
-
+//when you try to log in it will see if matches the data base 
 app.get("/engineer-login/:name/:password", async (request, rep) => {
     const username = request.params.name;
     const userPassword = request.params.password;
@@ -24,9 +24,9 @@ app.get("/engineer-login/:name/:password", async (request, rep) => {
    
     if (data.rows[0]) {
         let password = await pool.query("SELECT password FROM engineers WHERE username = $1", [username])
-        console.log(password)
+        
         if (password.rows[0].password === userPassword) {
-            console.log(data)
+            
             rep.send({ alert: "loged in",data: data.rows[0] })
         } else {
             rep.send({ alert:'invalid log in 1'})

@@ -7,10 +7,8 @@ const engineerLogIn = require('../models/signInModel.js');
 const logInEngineer = async (request, response) => {
     const username = request.params.username;
     const password = request.params.password;
-    console.log(username,password)
     const engineer = await engineerLogIn.getAllEngineerByLoginFromDB(username,password);
     const insertedEngineer = engineer.rows[0];
-    console.log(insertedEngineer)
     if(insertedEngineer){
         response.send(insertedEngineer);
     }else{

@@ -7,8 +7,8 @@ const tech1 = document.getElementById('1stTech');
 const tech2 = document.getElementById('2ndTech');
 const desc = document.getElementById('desc');
 const url = document.getElementById('url');
-const submit = document.getElementById('submit')
-const cancel = document.getElementById('cancel')
+const submit = document.getElementById('submit');
+const cancel = document.getElementById('cancel');
 const feed = document.getElementById('feed');
 const form = document.getElementById('form');
 const postbtn =document.getElementById('postbtn');
@@ -16,12 +16,13 @@ const logOut = document.getElementById('btn');
 const pageTitle = document.getElementById('page-title');
 const feedbtn = document.getElementById('feedbtn');
 
-
-user.innerText = username
+document.body.style.backgroundColor = "#163919";
+user.innerText = username;
 form.style.display ='none';
 
+//function to render all post to the screen
 const renderpost = () => {
-    fetch('http://localhost:4001/feeds/')
+    fetch('http://localhost:4002/feeds/')
     .then(res=> res.json())
     .then(json => json.forEach(post => {
         let div = document.createElement('div');
@@ -52,21 +53,20 @@ const renderpost = () => {
 }
 renderpost();
 
+
+//click event for when you click on the usersname 
+//it will diplay there profile
 const postUserbtn = (e) => {
-    let text = e.target.innerText
+    let text = e.target.innerText;
     if(typeof text === "string"){
-    async function fetchUserPost() {
-        const response = await fetch(`http://localhost:4001/feeds/${text}/`);
+    async function fetchUserPost(){
+        const response = await fetch(`http://localhost:4002/feeds/${text}/`);
         const data = await response.json();
-        console.log(data)
         if(data.length >0){
-            feed.innerHTML = ''
-            
+            feed.innerHTML = '';
             data.forEach(post => {
-                
                 let div = document.createElement('div');
                 div.setAttribute('class', 'card');
-                
                 let newpost = `
                 <div class="card-body">
                 <div class="user-info">
@@ -82,35 +82,37 @@ const postUserbtn = (e) => {
                   </p>
                   <a href = "${post.url}">Sites Link</a>
                 </div>
-            
-          `       
-                pageTitle.innerText = post.username
-                div.innerHTML = newpost
-                div.setAttribute("id",`${post.id}`)
-                feed.append(div)
-            })
-            
+          `    
+                pageTitle.innerText = post.username;
+                div.innerHTML = newpost;
+                div.setAttribute("id",`${post.id}`);
+                feed.append(div);
+            }) 
         }
       } 
-      fetchUserPost()
-      
+      fetchUserPost();
     }
 }
+
+//you click the logout button it will remove you information from local storage and take you to the home page
 const removeLocalStorage = () =>{
     localStorage.clear();
-    window.location.href= "../index.html"
+    window.location.href= "../index.html";
 }
 
+//when you click to make a post 
 const postClickEvent = () => {
-    form.style.display ='block'
-    feed.style.display ='none'
-    pageTitle.style.display ='none'
+    form.style.display ='block';
+    feed.style.display ='none';
+    pageTitle.style.display ='none';
 }
+//when you cancel the making of a post 
 const cancelClickEvent = () => {
-    form.style.display ='none'
-    feed.style.display ='flex'
+    form.style.display ='none';
+    feed.style.display ='flex';
 }
 
+//you you submit a post it will post it to the backend and reload the page to display it at the top
 const clickForSubmit = () =>{
     let titleValue = title.value;
     let tech1Value = tech1.value;
@@ -137,37 +139,38 @@ const clickForSubmit = () =>{
     redirect: 'follow'
     };
 
-    fetch("http://localhost:4001/feeds/", requestOptions)
+    fetch("http://localhost:4002/feeds/", requestOptions)
     .then(response => response.json())
     .then(result => console.log(result))
     .catch(error => console.log('error', error));
-    form.style.display ='none'
-    feed.style.display ='flex'
+    form.style.display ='none';
+    feed.style.display ='flex';
     window.location.reload();
 
     }
 
 
+//when you click to view your profile
 const userClickEvent = () => {
-    window.location.href= "../profile_page/profile.html"
-    renderpost()
+    window.location.href= "../profile_page/profile.html";
+    renderpost();
 }
 
 
 
 
-
-submit.addEventListener('click', clickForSubmit)
-postbtn.addEventListener('click',postClickEvent)
-cancel.addEventListener('click',cancelClickEvent)
-user.addEventListener('click', userClickEvent)
-logOut.addEventListener('click', removeLocalStorage)
-feed.addEventListener('click', postUserbtn)
+//all the event listeners 
+submit.addEventListener('click', clickForSubmit);
+postbtn.addEventListener('click',postClickEvent);
+cancel.addEventListener('click',cancelClickEvent);
+user.addEventListener('click', userClickEvent);
+logOut.addEventListener('click', removeLocalStorage);
+feed.addEventListener('click', postUserbtn);
 feedbtn.addEventListener('click', ()=>{
-    renderpost()
-    feed.style.display ='flex'
-    pageTitle.style.display ='block'
-    form.style.display ='none'
-    renderpost()
+    feed.innerHTML = '';
+    feed.style.display ='flex';
+    pageTitle.style.display ='block';
+    form.style.display ='none';
+    renderpost();
 })
-document.body.style.backgroundColor = "#163919";
+

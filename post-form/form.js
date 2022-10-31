@@ -13,7 +13,7 @@ const tech1Value = tech1.value
 const tech2Value = tech2.value
 const descValue = desc.value
 const urlValue = url.value
-
+//will send to wedsites post to the backend 
 const clickForSubmit = () =>{
     let myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
@@ -34,7 +34,7 @@ const clickForSubmit = () =>{
     redirect: 'follow'
     };
 
-    fetch("http://localhost:4001/feeds/", requestOptions)
+    fetch("http://localhost:4002/feeds/", requestOptions)
     .then(response => response.json())
     .then(result => console.log(result))
     .catch(error => console.log('error', error));

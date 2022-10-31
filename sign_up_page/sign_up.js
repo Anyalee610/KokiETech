@@ -8,10 +8,10 @@ const emailTextInput = document.getElementById("email");
 const usernameTextInput = document.getElementById("username");
 const passwordTextInput = document.getElementById("pword");
 const signupInfo = document.getElementById("sign-up");
-const logIn = document.getElementById("log-in")
+const logIn = document.getElementById("log-in");
 const switchToSign = document.getElementById("switch-sign");
 const switchToLogin = document.getElementById("switch-log");
-const title = document.getElementById('title')
+const title = document.getElementById('title');
 
 logIn.style.display ="none"
 
@@ -28,7 +28,7 @@ const switchTo = (logOrSign) => {
     
 }
 
-
+//when to click to log in it will check and if come bake as loged in it will store you information to the local host 
 const clickButtonLog = (event) =>{
     event.preventDefault()
     let passwordValue = passwordTextInput1.value;
@@ -41,11 +41,10 @@ const clickButtonLog = (event) =>{
       };
       
       
-      fetch(`http://localhost:4001/engineer-login/${usernameValue}/${passwordValue}`, requestOptions)
+      fetch(`http://localhost:4002/engineer-login/${usernameValue}/${passwordValue}`, requestOptions)
         .then(response => response.json())
         .then(result => {
             if(result.alert = "loged in"){
-                console.log(result)
                 localStorage.setItem("userId",result.data.id);
                 localStorage.setItem("username",usernameValue);
                 localStorage.setItem("password",passwordValue);
@@ -62,6 +61,8 @@ const clickButtonLog = (event) =>{
 
 
 }
+
+//when you click to sign up it will send all you information to the database 
 const clickButtonSign = (event) => {
     event.preventDefault();
     let nameValue = nameTextInput.value;
@@ -87,9 +88,8 @@ const clickButtonSign = (event) => {
     redirect: 'follow'
     }
 
-    console.log(usernameValue);
     
-    fetch("http://localhost:4001/engineer/", requestOptions)
+    fetch("http://localhost:4002/engineer/", requestOptions)
     .then(response => response.json())
     .then(result => console.log(result))
     .catch(error => console.log('error', error));

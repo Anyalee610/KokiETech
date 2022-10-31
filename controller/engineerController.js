@@ -46,8 +46,7 @@ const getSingleEngineer = async (request, response) => {
 
 
 const addEngineer = async (request, response) => {
-    console.log('chicken')
-    console.log(request.body)
+    
     const {name, username, email, password} = request.body;
 
     // console.log(password)
