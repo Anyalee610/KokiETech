@@ -49,18 +49,35 @@ const addEngineer = async (request, response) => {
     console.log('chicken')
     console.log(request.body)
     const {name, username, email, password} = request.body;
-    let hashedPassword;
-    const saltRounds = 10;
-    try {
-        hashedPassword = await bcrypt.hash(password, saltRounds);
-      } catch (err) {
-        return res.status(401).json({
-          message: "Invalid password",
-          error: err.message
-        })
-      }
+    // console.log(password)
+    // let hashedPassword = async (password, saltRounds = 10) => {
+    //     try {
+    //       // Generate a salt
+    //       const salt = await bcrypt.genSalt(saltRounds)
+      
+    //       // Hash password
+    //       return await bcrypt.hash(password, salt)
+    //     } catch (error) {
+    //       console.log(error)
+    //     }
+      
+    //     // Return null if error
+    //     return null
+    //   }
+    // let hashedPassword;
+    // const saltRounds = 10;
+    // try {
+    //     hashedPassword = await bcrypt.hash(password, saltRounds);
+    //     console.log(hashedPassword)
+    //   } catch (err) {
+    //     return res.status(401).json({
+    //       message: "Invalid password",
+    //       error: err.message
+    //     })
+    //   }
     
-    const postEngineer = await Engineer.postEngineerToDB(name, username, email, hashedPassword);
+    const postEngineer = await Engineer.postEngineerToDB(name, username, email, password);
+   console.log(postEngineer)
     const insertedEngineer = postEngineer.rows[0];
     response.send(insertedEngineer);
 }
