@@ -7,6 +7,9 @@
 body{
     background: #163919;
 }
+img{
+    border-radius: 12px;
+}
 #nav{
     background-color: #E5A099;
     height: 60px;

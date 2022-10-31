@@ -11,7 +11,7 @@ exports.seed = async function(knex) {
 
   
   await knex('engineers').insert([
-    {name: 'amber', username:'amber610',email: 'amberlovesme', password:'amber'},
+    {name: 'anaya', username:'anaya610',email: 'amberlovesme', password:'amber'},
     {name: 'amara', username:'amara610',email: 'amberlovesme', password:'amber'},
     {name: 'carmen', username:'carmen610',email: 'amberlovesme', password:'amber'},
     {name: 'cece', username:'cece610',email: 'amberlovesme', password:'amber'},
@@ -21,7 +21,7 @@ exports.seed = async function(knex) {
   await knex('post').insert([
     
     {description: "Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.", tech1: 'html', tech2: 'css',title: 'live long', url:'https://anyalee610.github.io/ESCA-FOODS/',userid: 1},
-    {description: "Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.", tech1: 'html', tech2: 'css',title: 'live long', url:'https://anyalee610.github.io/ESCA-FOODS/',userid: 2},
+    {description: "Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.", tech1: 'html', tech2: 'css',title: 'live long', url:'https://anyalee610.github.io/ESCA-FOODS/',userid: 1},
     {description: "Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.", tech1: 'html', tech2: 'css',title: 'live long', url:'https://anyalee610.github.io/ESCA-FOODS/',userid: 3},
     {description: "Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.", tech1: 'html', tech2: 'css',title: 'live long', url:'https://anyalee610.github.io/ESCA-FOODS/',userid: 4},
     {description: "Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.", tech1: 'html', tech2: 'css',title: 'live long', url:'https://anyalee610.github.io/ESCA-FOODS/',userid: 4},

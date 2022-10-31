@@ -21,21 +21,21 @@ const getSingleEngineer = async (request, response) => {
     response.send(engineer.rows[0]);
 }
 //This function get a request with name, username, email, password. It then wait for the promise to be fullied that it sent it to the db.js. Then sends the data that was put.
-async function generateToken (engineer) {
-    const secret = `${process.env.SECRET}`;
-    const token = await jwt.sign(
-        {
-            "userId": engineer["userId"],   
-        },
-        secret,
-        {
-            expiresIn: '365d'
-        }
-    );
-    console.log(`Token: ${token}`);
+// async function generateToken (engineer) {
+//     const secret = `${process.env.SECRET}`;
+//     const token = await jwt.sign(
+//         {
+//             "userId": engineer["userId"],   
+//         },
+//         secret,
+//         {
+//             expiresIn: '365d'
+//         }
+//     );
+//     console.log(`Token: ${token}`);
 
-    return token;
-}
+//     return token;
+// }
 // generateToken({"userId": "cece1232"})
 
 //  try{
@@ -49,18 +49,18 @@ const addEngineer = async (request, response) => {
     console.log('chicken')
     console.log(request.body)
     const {name, username, email, password} = request.body;
-    let hashedPassword;
-    const saltRounds = 10;
-    try {
-        hashedPassword = await bcrypt.hash(password, saltRounds);
-      } catch (err) {
-        return res.status(401).json({
-          message: "Invalid password",
-          error: err.message
-        })
-      }
+    // let hashedPassword;
+    // const saltRounds = 10;
+    // try {
+    //     hashedPassword = await bcrypt.hash(password, saltRounds);
+    //   } catch (err) {
+    //     return res.status(401).json({
+    //       message: "Invalid password",
+    //       error: err.message
+    //     })
+    //   }
     
-    const postEngineer = await Engineer.postEngineerToDB(name, username, email, hashedPassword);
+    const postEngineer = await Engineer.postEngineerToDB(name, username, email, password);
     const insertedEngineer = postEngineer.rows[0];
     response.send(insertedEngineer);
 }
