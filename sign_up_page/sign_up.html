@@ -4,22 +4,29 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200&display=swap" rel="stylesheet">
     <title>Sign Up</title>
     <link href="sign_up.css" rel="stylesheet" />
 </head>
 <body>
-    <h1> Sign up to KokiETech </h1>
+  <h1 id ='title'> Sign up to KokiETech </h1>
+
+  <div id="everything">
+
+  <div class="colume">
     <form id="sign-up"action="">
-        <label for="fname"> <p>Full Name: </p></label>
+        <label for="fname">Full Name:</label>
         <input  type="text" id="fname" name="fname" placeholder="Enter Full name">
-
-        <label for="username"><p>Username:</p></label>
+        <br>
+        <label for="username">Username:</label>
         <input type="text" id="username" name="username" placeholder="Create Username">
-
-        <label  for="email"><p>Email:</p></label>
+        <br>
+        <label  for="email">Email @:</label>
         <input  type="text" id="email" name="email" placeholder="Enter Email">
-
-        <label for="pword"> <p>Password: </p></label>
+        <br>
+        <label for="pword">Password:</label>
         <input type="text" id="pword" name="pword" placeholder="Create Password">
         <br><br>
 
@@ -28,12 +35,14 @@
 
         <button  type="button" id= "switch-log" value="Log-in">Log-In</button>
       </form> 
-      
+   </div>   
+ 
+  <div class="colume">
       <form id="log-in"action="">
-        <label for="username1"><p>Username:</p></label>
+        <label for="username1">Username:</label>
         <input type="text" id="username1" name="username1" placeholder=" Username">
-
-        <label for="pword1"> <p>Password: </p></label>
+        <br>
+        <label for="pword1">Password:</label>
         <input type="text" id="pword1" name="pword1" placeholder=" Password">
         <br><br>
 
@@ -43,6 +52,8 @@
         <button type="button" id="switch-sign"  value="Sign-up">Sign-In</button>
        
       </form> 
+    </div>
+   </div>
       
     <script src = "./sign_up.js"></script>
     <script src = "../feeds_page/feeds_page.js"></script>

@@ -11,12 +11,12 @@ const signupInfo = document.getElementById("sign-up");
 const logIn = document.getElementById("log-in")
 const switchToSign = document.getElementById("switch-sign");
 const switchToLogin = document.getElementById("switch-log");
+const title = document.getElementById('title')
 
 logIn.style.display ="none"
 
 //event listener function 
 const switchTo = (logOrSign) => {
-    console.log('work')
     if(logOrSign === 'sign'){
         signupInfo.style.display = "none";
         logIn.style.display= "block";
@@ -33,17 +33,19 @@ const clickButtonLog = (event) =>{
     event.preventDefault()
     let passwordValue = passwordTextInput1.value;
     let usernameValue = usernameTextInput1.value;
-
+    
+      
     let requestOptions = {
         method: 'GET',
         redirect: 'follow'
       };
-      console.log(usernameValue,passwordValue)
+      
       
       fetch(`http://localhost:4001/engineer-login/${usernameValue}/${passwordValue}`, requestOptions)
         .then(response => response.json())
         .then(result => {
             if(result.alert = "loged in"){
+                console.log(result)
                 localStorage.setItem("userId",result.data.id);
                 localStorage.setItem("username",usernameValue);
                 localStorage.setItem("password",passwordValue);
@@ -72,7 +74,6 @@ const clickButtonSign = (event) => {
 
 
     let raw = JSON.stringify({
-        userId,
         "name": nameValue,
         "username": usernameValue,
         "email": emailValue,
@@ -106,9 +107,13 @@ submitButtonSign.addEventListener("click", clickButtonSign);
 submitButtonLog.addEventListener("click", clickButtonLog);
 switchToLogin.addEventListener('click',()=>{
     switchTo('sign')
+    title.innerText = 'Login to KokiTech'
+
 });
 switchToSign.addEventListener('click',()=>{
     switchTo('log')
+    title.innerText = 'Sign up to KokiETech'
+    
 })
 
 //background color

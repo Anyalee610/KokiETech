@@ -1,7 +1,8 @@
-const user = document.getElementById("user")
+const user = document.getElementById('user')
+const user1 = document.getElementById('user1')
 let id = localStorage.getItem("userId");
 let username = localStorage.getItem("username");
-let password = localStorage.getItem("password");
+
 const title = document.getElementById('title');
 const tech1 = document.getElementById('1stTech');
 const tech2 = document.getElementById('2ndTech');
@@ -15,9 +16,11 @@ const postbtn =document.getElementById('postbtn')
 const logOut = document.getElementById('btn')
 const feedbtn = document.getElementById('feedbtn')
 
-user.innerText = username
+console.log(username)
+user.innerText = username;
+user1.innerText = username;
 form.style.display ='none';
-
+console.log(id)
 const renderpost = () => {
     fetch(`http://localhost:4001/feeds/id${id}`)
     .then(res=> res.json())
@@ -29,19 +32,20 @@ const renderpost = () => {
         let newpost = `
         <div class="card-body">
         <div class="user-info">
-         <a href="">${post.userid}</a>  
+         <a class= 'user-links'>${username}</a>  
           </div>
-
-          <span class="tag tag-teal">${post.tech1}</span>
-          <span class="tag tag-teal">${post.tech2}</span>
+          
           <h4>${post.title}
           </h4>
+          <div class ='all-tags'>
+          <span class="tag tag-pink">${post.tech1}</span>
+          <span class="tag tag-teal">${post.tech2}</span>
+          </div>
           <p>
             ${post.description}
           </p>
-          <a href = "${post.url}">Sites Link</a>
+          <a class="web-links" href = "${post.url}">Sites Link</a>
         </div>
-    
 `       
         div.innerHTML = newpost
         feed.append(div)

@@ -76,7 +76,6 @@
   .card-body {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: flex-start;
     padding: 20px;
     min-height: 250px;
@@ -103,7 +102,7 @@
   }
   
   .card-body p {
-    font-size: 13px;
+    font-size: 15px;
     margin: 0 0 40px;
   }
   .user {
@@ -137,4 +136,20 @@
     border: 1px solid;
     padding: 10px;
     box-shadow: 20px 30px #E5A099;
+  }
+
+  .all-tags{
+    display: flex;
+  
+  }
+  #user1{
+    color: #FCF6E5;
+    font-size: 100px;
+    width: 100vw;
+  }
+  a{
+    font-weight:bold;
+    font-size: large;
+    color: #163919;
+    text-decoration: none;
   }

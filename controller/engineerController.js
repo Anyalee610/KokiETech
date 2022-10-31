@@ -21,21 +21,21 @@ const getSingleEngineer = async (request, response) => {
     response.send(engineer.rows[0]);
 }
 //This function get a request with name, username, email, password. It then wait for the promise to be fullied that it sent it to the db.js. Then sends the data that was put.
-async function generateToken (engineer) {
-    const secret = `${process.env.SECRET}`;
-    const token = await jwt.sign(
-        {
-            "userId": engineer["userId"],   
-        },
-        secret,
-        {
-            expiresIn: '365d'
-        }
-    );
-    console.log(`Token: ${token}`);
+// async function generateToken (engineer) {
+//     const secret = `${process.env.SECRET}`;
+//     const token = await jwt.sign(
+//         {
+//             "userId": engineer["userId"],   
+//         },
+//         secret,
+//         {
+//             expiresIn: '365d'
+//         }
+//     );
+//     console.log(`Token: ${token}`);
 
-    return token;
-}
+//     return token;
+// }
 // generateToken({"userId": "cece1232"})
 
 //  try{
@@ -49,6 +49,7 @@ const addEngineer = async (request, response) => {
     console.log('chicken')
     console.log(request.body)
     const {name, username, email, password} = request.body;
+
     // console.log(password)
     // let hashedPassword = async (password, saltRounds = 10) => {
     //     try {
@@ -64,11 +65,12 @@ const addEngineer = async (request, response) => {
     //     // Return null if error
     //     return null
     //   }
+
     // let hashedPassword;
     // const saltRounds = 10;
     // try {
     //     hashedPassword = await bcrypt.hash(password, saltRounds);
-    //     console.log(hashedPassword)
+
     //   } catch (err) {
     //     return res.status(401).json({
     //       message: "Invalid password",
@@ -77,7 +79,7 @@ const addEngineer = async (request, response) => {
     //   }
     
     const postEngineer = await Engineer.postEngineerToDB(name, username, email, password);
-   console.log(postEngineer)
+
     const insertedEngineer = postEngineer.rows[0];
     response.send(insertedEngineer);
 }

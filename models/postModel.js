@@ -3,7 +3,7 @@ const {pool} = require('../db.js');
 class post {
     //this grabs all the engineers accounts 
     static getAllPostFromDB() {
-        return pool.query('SELECT * FROM post INNER JOIN engineers ON engineers.id= post.userid ORDER by created_at DESC;');
+        return pool.query('SELECT * FROM post INNER JOIN engineers ON engineers.id = post.userid ORDER by created_at DESC;');
     }
     //this grabs one engineers account based on id 
     static getPostByIdFromDB(id) {

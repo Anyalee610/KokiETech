@@ -1,65 +1,70 @@
 *{
   font-family: 'Inconsolata', monospace;
+  box-sizing: border-box;
 }
+
 .new_post{
-    background-color: antiquewhite;
-    height: 800px;
-    width: 600px;
-    border-radius: 60px;
-    padding-left: 20px;
+  background-color: rgb(239, 229, 216);
+  height: 800px;
+  width: 600px;
+  border-radius: 60px;
+  padding-left: 20px;
 }
+
 #user_name{
  padding-left: 30px;
 }
+
 li{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
-/* #nav{
-    background-color: #E5A099;
-    height: 60px;
-    padding-right: 20px;
-    font-family: 'Inconsolata', monospace;
-    padding: 0px;
-    margin: 0px;
-    align-items:center;
+#page-title{
+  color: #FCF6E5;
+  font-size: 100px;
+  width: 100vw;
 }
-.btn-link{
-    display: flex;
-    justify-content:flex-end;
-    color:red
+
+
+a{
+  font-weight:bold;
+  font-size: large;
+  color: #163919;
+  text-decoration: none;
 }
-.btn-link-profile{
-    color: black;
-    text-decoration: none;
-    padding-left: 20px;
-    justify-content:flex-start;
-} */
+.all-tags{
+  display: flex;
+
+}
+
+
 #nav{
-    background-color: #E5A099;
-    height: 60px;
-    display: flex;
-    justify-content:flex-end;
-    align-items:center;
-    padding-right: 20px;
-    font-family: 'Inconsolata', monospace;
+  background-color: #E5A099;
+  height: 60px;
+  display: flex;
+  justify-content:flex-end;
+  align-items:center;
+  padding-right: 20px;
+  font-family: 'Inconsolata', monospace;
+  
 }
+
 .btn-link{
-    color: black;
-    text-decoration: none;
-    padding-left: 20px;
+  color: black;
+  text-decoration: none;
+  padding-left: 20px;
 }
+
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
-* {
-  box-sizing: border-box;
-}
+
 .container {
   display: flex;
   width: 1040px;
   justify-content: space-evenly;
   flex-wrap: wrap;
 }
+
 .card {
   margin: 10px;
   background-color: #fff;
@@ -76,7 +81,6 @@ li{
 .card-body {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: flex-start;
   padding: 20px;
   min-height: 250px;
@@ -84,6 +88,8 @@ li{
 
 .tag {
   background: #cccccc;
+  display: flex;
+  flex-wrap: wrap;
   border-radius: 50px;
   font-size: 12px;
   margin: 0;
@@ -92,14 +98,15 @@ li{
   text-transform: uppercase;
   cursor: pointer;
 }
+
 .tag-teal {
-  background-color: #47bcd4;
+  background-color: #5eb34fd4;
 }
 .tag-purple {
   background-color: #5e76bf;
 }
 .tag-pink {
-  background-color: #cd5b9f;
+  background-color: #f693cfd9;
 }
 
 .card-body p {
@@ -111,12 +118,7 @@ li{
   margin-top: auto;
 }
 
-.user img {
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  margin-right: 10px;
-}
+
 .user-info h5 {
   margin: 0;
 }
