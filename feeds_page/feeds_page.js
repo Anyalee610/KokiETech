@@ -22,7 +22,7 @@ form.style.display ='none';
 
 //function to render all post to the screen
 const renderpost = () => {
-    fetch('http://localhost:4002/feeds/')
+    fetch('http://localhost:4008/feeds/')
     .then(res=> res.json())
     .then(json => json.forEach(post => {
         let div = document.createElement('div');
@@ -60,7 +60,7 @@ const postUserbtn = (e) => {
     let text = e.target.innerText;
     if(typeof text === "string"){
     async function fetchUserPost(){
-        const response = await fetch(`http://localhost:4002/feeds/${text}/`);
+        const response = await fetch(`http://localhost:4008/feeds/${text}/`);
         const data = await response.json();
         if(data.length >0){
             feed.innerHTML = '';
@@ -139,7 +139,7 @@ const clickForSubmit = () =>{
     redirect: 'follow'
     };
 
-    fetch("http://localhost:4002/feeds/", requestOptions)
+    fetch("http://localhost:4008/feeds/", requestOptions)
     .then(response => response.json())
     .then(result => console.log(result))
     .catch(error => console.log('error', error));

@@ -6,7 +6,7 @@ const postRouter = require('./routes/postRoute');
 
 const app = express();
 const cors = require('cors');
-const port = 4002; 
+const port = 4008; 
 app.use(cors());
 app.use(express.json());
 

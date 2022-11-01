@@ -34,7 +34,7 @@ const clickForSubmit = () =>{
     redirect: 'follow'
     };
 
-    fetch("http://localhost:4002/feeds/", requestOptions)
+    fetch("http://localhost:4008/feeds/", requestOptions)
     .then(response => response.json())
     .then(result => console.log(result))
     .catch(error => console.log('error', error));
