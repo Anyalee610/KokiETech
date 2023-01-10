@@ -34,7 +34,7 @@ const clickForSubmit = () =>{
     redirect: 'follow'
     };
 
-    fetch("http://localhost:4007/feeds/", requestOptions)
+    fetch("https://kokietech-production.up.railway.app/feeds/", requestOptions)
     .then(response => response.json())
     .then(result => console.log(result))
     .catch(error => console.log('error', error));
