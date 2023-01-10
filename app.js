@@ -6,7 +6,7 @@ const postRouter = require('./routes/postRoute');
 
 const app = express();
 const cors = require('cors');
-const port = 4007; 
+const port = process.env.port || 4007; 
 app.use(cors());
 app.use(express.json());
 
