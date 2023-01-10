@@ -2,10 +2,9 @@ const {pool} = require('../db.js');
 //here we grab the engineer class from engineerModel.js connecting the two 
 const Engineer = require('../models/engineerModel.js');
 //grabs the web token creators(module)
-const jwt = require('jsonwebtoken');
+
 const engineer = require('../models/engineerModel.js');
-require("dotenv").config()
-const bcrypt = require("bcrypt")
+
 
 
 //This function waits for the informaton about all the enginners to come from the db.js to engineerModel.js to get here. Then sends a response.
