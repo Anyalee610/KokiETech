@@ -20,6 +20,11 @@ document.body.style.backgroundColor = "#163919";
 user.innerText = username;
 form.style.display ='none';
 
+const commentSectionDisplayButton = () => {
+    
+}
+
+
 //function to render all post to the screen
 const renderpost = () => {
     fetch('http://localhost:4008/feeds/')
@@ -29,21 +34,16 @@ const renderpost = () => {
         div.setAttribute('class', 'card');
         let newpost = `
         <div class="card-body">
-        <div class="user-info">
-         <a class= 'user-links'>${post.username}</a>  
-          </div>
-          
-          <h4>${post.title}
-          </h4>
-          <div class ='all-tags'>
-          <span class="tag tag-pink">${post.tech1}</span>
-          <span class="tag tag-teal">${post.tech2}</span>
-          </div>
-          <p>
-            ${post.description}
-          </p>
+            <div class="user-info">
+                <a class= 'user-links'>${post.username}</a>  
+            </div>
+            <h4>${post.title}</h4>
+            <div class ='all-tags'>
+                <span class="tag tag-pink">${post.tech1}</span>
+                <span class="tag tag-teal">${post.tech2}</span>
+            </div>
+            <p>${post.description}</p>
           <a class="web-links" href = "${post.url}">Sites Link</a>
-          
         </div>
 `       
         
@@ -52,6 +52,7 @@ const renderpost = () => {
     }))
 }
 renderpost();
+
 
 
 //click event for when you click on the usersname 
