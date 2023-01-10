@@ -22,7 +22,7 @@ form.style.display ='none';
 
 //will render all the post by your id 
 const renderpost = () => {
-    fetch(`http://localhost:4008/feeds/id${id}`)
+    fetch(`http://localhost:4007/feeds/id${id}`)
     .then(res=> res.json())
     .then(json => json.forEach(post => {
 
@@ -96,7 +96,7 @@ const clickForSubmit = () =>{
     redirect: 'follow'
     };
 
-    fetch("http://localhost:4008/feeds/", requestOptions)
+    fetch("http://localhost:4007/feeds/", requestOptions)
     .then(response => response.json())
     .then(result => console.log(result))
     .catch(error => console.log('error', error));
